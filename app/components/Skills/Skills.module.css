@@ -1,0 +1,339 @@
+.showcase {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 123px 6.65% 96px;
+  color: #f7f8ff;
+  background-color: #020a22;
+  background-image: url("../images/skills-projects-background.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.showcaseInner {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1555px);
+  margin: 0 auto;
+}
+
+.sectionHeading {
+  margin: 0 0 38px;
+  text-align: center;
+}
+
+.sectionHeading h2 {
+  color: #f8f8ff;
+  font-size: clamp(2.45rem, 3.25vw, 3.75rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.06;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.22);
+}
+
+.sectionHeading h2 span {
+  color: transparent;
+  background: linear-gradient(
+    95deg,
+    #00dff0 0%,
+    #1dc1ff 38%,
+    #7a7eff 70%,
+    #d245ff 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.headingDivider {
+  display: flex;
+  width: 199px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+  margin: 9px auto 0;
+}
+
+.headingDivider::before,
+.headingDivider::after {
+  width: 44%;
+  height: 2px;
+  content: "";
+}
+
+.headingDivider::before {
+  background: linear-gradient(90deg, transparent, #09d7f2);
+  box-shadow: 0 0 10px rgba(6, 220, 255, 0.42);
+}
+
+.headingDivider::after {
+  background: linear-gradient(90deg, #9440ff, transparent);
+  box-shadow: 0 0 10px rgba(168, 52, 255, 0.3);
+}
+
+.headingDivider span {
+  width: 11px;
+  height: 11px;
+  flex: 0 0 11px;
+  margin-inline: 10px;
+  border-radius: 50%;
+  background: #bd46ff;
+  box-shadow:
+    0 0 0 5px rgba(174, 57, 255, 0.1),
+    0 0 18px #bf46ff;
+}
+
+.skillGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.skillCard {
+  position: relative;
+  display: flex;
+  min-height: 245px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 22px 18px 17px;
+  border: 2px solid transparent;
+  border-radius: 19px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(7, 28, 64, 0.94),
+      rgba(4, 15, 43, 0.92)
+    ) padding-box,
+    linear-gradient(
+      120deg,
+      #08ddf6 0%,
+      #0c71ff 48%,
+      #c53cff 100%
+    ) border-box;
+  box-shadow:
+    inset 0 0 30px rgba(14, 131, 255, 0.11),
+    0 0 25px rgba(0, 124, 255, 0.15);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.skillCard::before,
+.skillCard::after {
+  position: absolute;
+  z-index: 0;
+  width: 166px;
+  height: 112px;
+  content: "";
+  pointer-events: none;
+  transform: rotate(42deg);
+}
+
+.skillCard::before {
+  left: -72px;
+  bottom: -77px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 204, 255, 0.22),
+    rgba(0, 80, 255, 0.01)
+  );
+}
+
+.skillCard::after {
+  right: -74px;
+  top: -82px;
+  background: linear-gradient(
+    135deg,
+    rgba(182, 40, 255, 0.2),
+    transparent
+  );
+}
+
+.skillCard:hover {
+  transform: translateY(-7px);
+  box-shadow:
+    inset 0 0 30px rgba(12, 139, 255, 0.14),
+    0 0 30px rgba(0, 200, 255, 0.25),
+    0 0 38px rgba(164, 40, 255, 0.18);
+}
+
+.skillOrbit {
+  position: relative;
+  display: grid;
+  width: 176px;
+  height: 136px;
+  place-items: center;
+  margin-bottom: 2px;
+}
+
+.skillOrbit::before,
+.skillOrbit::after {
+  position: absolute;
+  width: 145px;
+  height: 111px;
+  content: "";
+  border: 1px solid rgba(14, 143, 255, 0.55);
+  border-radius: 50%;
+}
+
+.skillOrbit::before {
+  transform: rotate(-8deg);
+}
+
+.skillOrbit::after {
+  width: 170px;
+  height: 93px;
+  border-color: rgba(170, 56, 255, 0.5);
+  transform: rotate(16deg);
+}
+
+.skillIcon {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: 78px;
+  height: 78px;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(4, 16, 44, 0.72);
+  box-shadow:
+    0 0 0 2px rgba(7, 185, 255, 0.16),
+    0 0 25px rgba(0, 186, 255, 0.1);
+}
+
+.skillIcon i {
+  font-size: 4.35rem;
+  line-height: 1;
+}
+
+.html .skillIcon i {
+  color: #ff542d;
+  filter: drop-shadow(0 0 7px rgba(255, 82, 42, 0.14));
+}
+
+.css .skillIcon i {
+  color: #278cff;
+  filter: drop-shadow(0 0 7px rgba(26, 136, 255, 0.16));
+}
+
+.javascript .skillIcon i {
+  color: #f7df1e;
+  filter: drop-shadow(0 0 7px rgba(247, 223, 30, 0.12));
+}
+
+.bootstrap .skillIcon i {
+  color: #822eff;
+  filter: drop-shadow(0 0 8px rgba(130, 46, 255, 0.18));
+}
+
+.orbitDot {
+  position: absolute;
+  z-index: 3;
+  top: 57%;
+  left: 1px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #08dfff;
+  box-shadow: 0 0 13px #08dfff;
+}
+
+.bootstrap .orbitDot {
+  right: 1px;
+  left: auto;
+  background: #d052ff;
+  box-shadow: 0 0 13px #d052ff;
+}
+
+.skillCard h3 {
+  position: relative;
+  z-index: 2;
+  color: #f7f8ff;
+  font-size: clamp(1.05rem, 1.28vw, 1.34rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.cardAccent {
+  position: relative;
+  z-index: 2;
+  width: 56px;
+  height: 4px;
+  margin-top: 11px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #08e2ef, #178eff, #bd45ff);
+  box-shadow: 0 0 10px rgba(0, 209, 255, 0.23);
+}
+
+@media (max-width: 1050px) {
+  .showcase {
+    padding-inline: 4.5%;
+  }
+
+  .skillGrid {
+    gap: 16px;
+  }
+
+  .skillCard {
+    min-height: 224px;
+  }
+}
+
+@media (max-width: 800px) {
+  .showcase {
+    padding-top: 108px;
+    padding-bottom: 70px;
+    background-position: center top;
+  }
+
+  .sectionHeading {
+    margin-bottom: 28px;
+  }
+
+  .skillGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+  .skillCard {
+    min-height: 210px;
+  }
+
+  .skillOrbit {
+    transform: scale(0.9);
+    margin-block: -7px;
+  }
+}
+
+@media (max-width: 460px) {
+  .showcase {
+    padding-inline: 15px;
+    padding-top: 101px;
+  }
+
+  .skillGrid {
+    gap: 11px;
+  }
+
+  .skillCard {
+    min-height: 183px;
+    padding-inline: 7px;
+    border-radius: 15px;
+  }
+
+  .skillOrbit {
+    width: 160px;
+    height: 118px;
+    transform: scale(0.78);
+    margin-bottom: -5px;
+  }
+
+  .skillCard h3 {
+    font-size: 0.98rem;
+  }
+}

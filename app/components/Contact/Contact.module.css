@@ -1,0 +1,623 @@
+.contact {
+  --cyan: #16ccff;
+  --blue: #278cff;
+  --purple: #be44ff;
+  --text: #f7f8ff;
+  --muted: #d6dced;
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 112px 32px 104px;
+  scroll-margin-top: 12px;
+  background-color: #03091b;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: var(--text);
+}
+
+.backgroundOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: -4;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(13, 49, 120, 0.12), transparent 46%),
+    linear-gradient(180deg, rgba(0, 5, 19, 0.05), rgba(0, 5, 19, 0.18));
+  pointer-events: none;
+}
+
+.orbit {
+  position: absolute;
+  z-index: -2;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.orbitOne {
+  width: 67vw;
+  height: 67vw;
+  max-width: 1120px;
+  max-height: 1120px;
+  border: 1px solid rgba(28, 180, 255, 0.82);
+  box-shadow: 0 0 12px rgba(22, 179, 255, 0.13);
+}
+
+.orbitTwo {
+  width: 73vw;
+  height: 73vw;
+  max-width: 1220px;
+  max-height: 1220px;
+  border: 1px solid rgba(188, 67, 255, 0.72);
+}
+
+.dotGrid {
+  position: absolute;
+  z-index: -1;
+  width: 100px;
+  height: 92px;
+  opacity: 0.8;
+  background-image: radial-gradient(circle, rgba(205, 76, 255, 0.9) 1.7px, transparent 1.9px);
+  background-size: 18px 18px;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 25%, #000 100%);
+  pointer-events: none;
+}
+
+.dotGridLeft {
+  top: 178px;
+  left: 9.5%;
+}
+
+.dotGridRight {
+  right: 4.4%;
+  bottom: 365px;
+}
+
+.contactCard {
+  position: relative;
+  width: min(930px, 100%);
+  min-height: 684px;
+  border: 2px solid transparent;
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(5, 16, 40, 0.79), rgba(4, 13, 31, 0.83)) padding-box,
+    linear-gradient(115deg, #11cfff 0%, #1c7fff 34%, #7c3fff 66%, #f14cff 100%) border-box;
+  box-shadow:
+    0 0 16px rgba(31, 194, 255, 0.72),
+    0 0 36px rgba(117, 49, 255, 0.32),
+    inset 0 0 38px rgba(37, 102, 207, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  overflow: hidden;
+}
+
+.contactCard::before,
+.contactCard::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.contactCard::before {
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% -8%, rgba(72, 119, 255, 0.14), transparent 40%),
+    radial-gradient(ellipse at 104% 52%, rgba(33, 206, 255, 0.08), transparent 37%),
+    radial-gradient(ellipse at -2% 92%, rgba(172, 55, 255, 0.1), transparent 36%);
+}
+
+.contactCard::after {
+  right: -170px;
+  bottom: -290px;
+  width: 650px;
+  height: 470px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(86, 65, 216, 0.2), transparent 67%);
+  filter: blur(12px);
+}
+
+.cardGlow {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 20%, rgba(37, 118, 255, 0.22), transparent 67%);
+  filter: blur(25px);
+  pointer-events: none;
+}
+
+.cardShape {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+.cardShapeOne {
+  top: -155px;
+  left: -110px;
+  width: 700px;
+  height: 780px;
+  border-radius: 44% 56% 62% 38% / 38% 40% 60% 62%;
+  background: linear-gradient(139deg, rgba(31, 99, 180, 0.16), rgba(23, 27, 83, 0.04) 54%, transparent 55%);
+  transform: rotate(7deg);
+}
+
+.cardShapeTwo {
+  right: -170px;
+  bottom: -140px;
+  width: 670px;
+  height: 590px;
+  border-radius: 61% 39% 35% 65% / 52% 55% 45% 48%;
+  background: linear-gradient(321deg, rgba(54, 99, 190, 0.12), rgba(16, 23, 84, 0.03) 55%, transparent 56%);
+  transform: rotate(-11deg);
+}
+
+.cardContent {
+  position: relative;
+  z-index: 3;
+  min-height: 684px;
+  padding: 18px 48px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emailBadge {
+  width: 90px;
+  height: 90px;
+  display: grid;
+  place-items: center;
+  margin-top: -1px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(7, 17, 44, 0.98), rgba(9, 19, 44, 0.9));
+  box-shadow:
+    0 0 0 2px rgba(8, 16, 43, 0.92),
+    0 0 0 4px transparent,
+    0 0 16px rgba(15, 207, 255, 0.64),
+    0 0 26px rgba(178, 61, 255, 0.56);
+  position: relative;
+}
+
+.emailBadge::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(145deg, #0dd6ff 15%, #5253ff 48%, #d23fff 82%);
+  filter: blur(1px);
+}
+
+.emailBadgeInner {
+  width: 53px;
+  height: 53px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: #f2f4ff;
+  color: #1536c7;
+  box-shadow: 0 7px 16px rgba(0, 0, 0, 0.16);
+}
+
+.emailBadgeInner i {
+  font-size: 1.8rem;
+}
+
+.contactCard h1 {
+  margin: 14px 0 8px;
+  text-align: center;
+  color: #ffffff;
+  font-size: clamp(2.45rem, 4vw, 3.18rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  font-weight: 800;
+}
+
+.contactCard h1 span {
+  color: transparent;
+  background: linear-gradient(90deg, #15d6ff 0%, #5ca8ff 47%, #dc59ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.sectionTitle span {
+  width: 59px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(76, 132, 255, 0.8));
+  box-shadow: 0 0 9px rgba(65, 152, 255, 0.35);
+}
+
+.sectionTitle span:last-child {
+  background: linear-gradient(90deg, rgba(175, 89, 255, 0.85), transparent);
+}
+
+.sectionTitle p {
+  margin: 0;
+  color: #ecedf6;
+  font-size: 1.12rem;
+  font-weight: 500;
+  letter-spacing: 0.33em;
+  text-transform: none;
+}
+
+.intro {
+  margin: 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 1.13rem;
+  line-height: 1.45;
+  font-weight: 400;
+  letter-spacing: -0.012em;
+}
+
+.form {
+  width: 100%;
+  margin-top: 25px;
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.fieldGroup {
+  display: block;
+}
+
+.fieldLabel {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 0 0 9px 4px;
+  color: #fafbff;
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.fieldLabel i {
+  width: 26px;
+  color: #7fbcff;
+  text-align: center;
+  font-size: 1.18rem;
+  text-shadow: 0 0 14px rgba(79, 154, 255, 0.38);
+}
+
+.fieldShell,
+.fieldShellText {
+  position: relative;
+  display: block;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  background:
+    linear-gradient(rgba(17, 33, 69, 0.83), rgba(11, 24, 53, 0.83)) padding-box,
+    linear-gradient(90deg, rgba(13, 201, 255, 0.98), rgba(105, 63, 255, 0.96), rgba(193, 55, 255, 0.94)) border-box;
+  box-shadow: inset 0 0 18px rgba(52, 90, 167, 0.08), 0 0 9px rgba(29, 177, 255, 0.1);
+  transition: box-shadow 180ms ease, transform 180ms ease;
+}
+
+.fieldShell:focus-within,
+.fieldShellText:focus-within {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 14px rgba(40, 180, 255, 0.18),
+    0 0 24px rgba(148, 66, 255, 0.1),
+    inset 0 0 18px rgba(52, 90, 167, 0.09);
+}
+
+.fieldShell input,
+.fieldShellText textarea {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #eef3ff;
+  font-size: 1.05rem;
+  font-weight: 400;
+  font-family: inherit;
+}
+
+.fieldShell input {
+  height: 67px;
+  padding: 0 57px 0 20px;
+}
+
+.fieldShellText textarea {
+  min-height: 104px;
+  padding: 20px 20px 18px;
+  resize: vertical;
+}
+
+.fieldShell input::placeholder,
+.fieldShellText textarea::placeholder {
+  color: #d1d8e9;
+  opacity: 1;
+}
+
+.fieldShell > i {
+  position: absolute;
+  top: 50%;
+  right: 17px;
+  transform: translateY(-50%);
+  color: #9dbbff;
+  font-size: 1.35rem;
+  text-shadow: 0 0 11px rgba(94, 152, 255, 0.4);
+  pointer-events: none;
+}
+
+.fieldShellText {
+  margin-top: 0;
+}
+
+.form > .fieldGroup {
+  margin-top: 21px;
+}
+
+.submitButton {
+  width: min(323px, 100%);
+  height: 69px;
+  margin: 21px auto 0;
+  padding: 5px 8px 5px 16px;
+  display: grid;
+  grid-template-columns: 53px 1fr 50px;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(117, 85, 255, 0.96);
+  border-radius: 999px;
+  color: #ffffff;
+  background: linear-gradient(96deg, #07cfff 0%, #7e5cff 62%, #c93cff 100%);
+  box-shadow:
+    0 11px 27px rgba(53, 89, 255, 0.26),
+    0 0 26px rgba(196, 60, 255, 0.17),
+    inset 0 1px 1px rgba(255, 255, 255, 0.44);
+  font-size: 1.11rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 16px 33px rgba(48, 130, 255, 0.33),
+    0 0 34px rgba(207, 67, 255, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.48);
+  filter: saturate(1.06);
+}
+
+.submitIcon {
+  display: grid;
+  width: 50px;
+  height: 50px;
+  place-items: center;
+  border-radius: 50%;
+  color: #ffffff;
+  background: rgba(5, 56, 160, 0.1);
+  font-size: 1.4rem;
+}
+
+.submitArrow {
+  display: grid;
+  width: 50px;
+  height: 50px;
+  place-items: center;
+  border-radius: 50%;
+  color: #ffffff;
+  background: #8c1ed0;
+  font-size: 1.15rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.submitButton span:nth-child(2) {
+  justify-self: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 980px) {
+  .contact {
+    padding-inline: 20px;
+  }
+
+  .contactCard {
+    width: min(820px, 100%);
+    min-height: 650px;
+  }
+
+  .cardContent {
+    min-height: 650px;
+    padding-inline: 34px;
+  }
+
+  .intro {
+    font-size: 1.03rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .contact {
+    min-height: auto;
+    padding: 108px 14px 54px;
+    background-size: cover;
+    background-position: center top;
+  }
+
+  .orbitOne {
+    width: 920px;
+    height: 920px;
+  }
+
+  .orbitTwo {
+    width: 1020px;
+    height: 1020px;
+  }
+
+  .dotGridLeft {
+    top: 154px;
+    left: 2%;
+    transform: scale(0.75);
+    transform-origin: left top;
+  }
+
+  .dotGridRight {
+    right: -3%;
+    bottom: 185px;
+    transform: scale(0.7);
+    transform-origin: right bottom;
+  }
+
+  .contactCard {
+    width: 100%;
+    min-height: auto;
+    border-radius: 24px;
+  }
+
+  .cardContent {
+    min-height: auto;
+    padding: 18px 18px 24px;
+  }
+
+  .emailBadge {
+    width: 78px;
+    height: 78px;
+  }
+
+  .emailBadgeInner {
+    width: 47px;
+    height: 47px;
+    border-radius: 12px;
+  }
+
+  .emailBadgeInner i {
+    font-size: 1.5rem;
+  }
+
+  .contactCard h1 {
+    font-size: clamp(2rem, 9vw, 2.55rem);
+    margin-top: 14px;
+  }
+
+  .sectionTitle {
+    gap: 11px;
+    margin-bottom: 15px;
+  }
+
+  .sectionTitle span {
+    width: 34px;
+  }
+
+  .sectionTitle p {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+  }
+
+  .intro {
+    font-size: 0.93rem;
+    line-height: 1.55;
+  }
+
+  .intro br {
+    display: none;
+  }
+
+  .fieldRow {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .fieldLabel {
+    margin-bottom: 8px;
+    font-size: 0.93rem;
+  }
+
+  .fieldShell input {
+    height: 58px;
+    padding-left: 16px;
+  }
+
+  .fieldShellText textarea {
+    min-height: 125px;
+  }
+
+  .submitButton {
+    height: 62px;
+    grid-template-columns: 46px 1fr 46px;
+    padding: 5px 7px 5px 10px;
+    font-size: 1rem;
+  }
+
+  .submitIcon,
+  .submitArrow {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+@media (max-height: 850px) and (min-width: 721px) {
+  .contact {
+    padding-top: 92px;
+    padding-bottom: 92px;
+  }
+
+  .contactCard,
+  .cardContent {
+    min-height: 650px;
+  }
+
+  .emailBadge {
+    width: 80px;
+    height: 80px;
+  }
+
+  .emailBadgeInner {
+    width: 48px;
+    height: 48px;
+  }
+
+  .contactCard h1 {
+    font-size: 2.65rem;
+  }
+
+  .intro {
+    font-size: 1rem;
+  }
+
+  .form {
+    margin-top: 20px;
+  }
+
+  .fieldShell input {
+    height: 60px;
+  }
+
+  .fieldShellText textarea {
+    min-height: 94px;
+  }
+
+  .submitButton {
+    height: 63px;
+    margin-top: 16px;
+  }
+
+  .submitIcon,
+  .submitArrow {
+    width: 47px;
+    height: 47px;
+  }
+}
